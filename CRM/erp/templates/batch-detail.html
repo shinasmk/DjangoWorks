@@ -1,0 +1,30 @@
+{%extends 'base.html'%} {%block body%}
+<h1>Batch Details</h1>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="card" style="width: 50%">
+        <!-- {% if employee.profilepic %}
+            <img src="{{employee.profilepic.url}}" alt="" />
+            {%else%}
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              class="card-img-top"
+              alt="employee"
+            />
+            {%endif%} -->
+        <div class="card-body">
+          <h5 class="card-title">{{batches.batch_name}}</h5>
+          <p class="card-text">Course: {{batches.course}}</p>
+          <p class="card-text">Status: {{batches.status}}</p>
+          <p class="card-text">Start Date: {{batches.start_date}}</p>
+          <p class="card-text">End Date: {{batches.end_date}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
+{%endblock%}

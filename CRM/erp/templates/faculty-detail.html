@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block body%}
+<h1>Faculty Details</h1>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <div class="card" style="width: 50%">
+            {% if faculties.profile_pic %}
+            <img src="{{faculties.profile_pic.url}}" alt="" />
+            {%else%}
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              class="card-img-top"
+              alt="faculties"
+            />
+            {%endif%}
+            <div class="card-body">
+              <h5 class="card-title">{{faculties.user.first_name}} {{students.user.last_name}}</h5>
+              <p class="card-text">Email: {{faculties.user.email}}</p>
+              <p class="card-text">Date and Time Joined: {{faculties.user.date_joined}}</p>
+              <p class="card-text">Role: {{faculties.user.role}}</p>
+              <p class="card-text">Gender: {{faculties.user.gender}}</p>
+              <p class="card-text">Phone Number: {{faculties.user.phone_number}}</p>
+              <p class="card-text">Batch Name: {{faculties.batch.batch_name}}</p>
+              <p class="card-text">Qualification: {{faculties.qualification}}</p>
+              <p class="card-text">Experience: {{faculties.years_of_experience}}</p>
+
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+{%endblock%}

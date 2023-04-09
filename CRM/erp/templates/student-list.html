@@ -1,0 +1,91 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      {%if messages%} {%for m in messages%}
+      <div
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Holy guacamole!</strong>{{m}}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {%endfor%} {%endif%}
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-12">
+      <table class="table table-striped table-light">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Batch Name</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for std in filter.qs%}
+          <tr>
+            <td>{{std.user.first_name}}{{std.user.last_name}}</td>
+            <td>{{std.batch.batch_name}}</td>
+            <td>{{std.user.phone_number}}</td>
+            <td>{{std.user.gender}}</td>
+            <td>{{std.user.email}}</td>
+            <td>
+              <a
+                href="{%url 'student-detail' std.id%}"
+                class="btn btn-outline-info btn-sm"
+                >View</a
+              >
+              <a
+                href="{%url 'student-edit' std.id%}"
+                class="btn btn-outline-primary btn-sm"
+                >Edit</a
+              >
+              <a
+                href="{%url 'student-delete' std.id%}"
+                class="btn btn-outline-danger btn-sm"
+                >Delete</a
+              >
+            </td>
+          </tr>
+
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" name="" id="">
+      </form>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+{%endblock%}

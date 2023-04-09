@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <a href="{%url 'faculty-add'%}" class="form-control btn btn-outline-warning btn-lg py-5">ADD NEW FACULTY</a>
+        </div>
+        <div class="col-4">
+            <a href="{%url 'faculty-list' %}" class="form-control btn btn-outline-success btn-lg py-5">LIST FACULTIES</a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}
